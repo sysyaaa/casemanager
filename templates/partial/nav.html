@@ -1,0 +1,8 @@
+<h2><a href="/">CASEMANAGER</a></h2>
+<ul>  
+    {% if user.is_authenticated %}
+        <li><a href="{% url "user:logout" %}">Log out</a></li>
+    {% comment %} {% else %}
+        <li><a href="{% url "user:login" %}">Log in</a></li> {% endcomment %}
+    {% endif %}
+</ul>

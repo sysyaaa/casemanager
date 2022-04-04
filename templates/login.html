@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block page_title %}Log In{% endblock page_title %}
+
+{% block content %}
+    <div>
+        <h4>로그인</h4>
+    </div>
+    <div>
+        <span>
+        또는 <a href="{% url "user:signup" %}">계정 만들기</a>
+        </span>
+    </div>
+    <form method="POST", action="{% url "user:login" %}">
+        {% csrf_token %}
+        {% include "form_errors.html" %}
+        {{form.as_p}}
+        <input type="submit" value="로그인">
+    </form>
+{% endblock content %}
+    

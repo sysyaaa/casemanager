@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block page_title %}Cases{% endblock page_title %}
+
+{% block content %}
+
+    <h3>사건 목록</h3>
+
+    {% for case in data.case_list %}
+        <li><a href="{% url 'cases:case_detail' case.pk %}">{{case.case_num}} / {{case.plaintiff_name}} / {{case.defendant_name}}</a></li>
+    {% endfor %}
+
+{% endblock content %}}
