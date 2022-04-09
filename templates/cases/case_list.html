@@ -4,10 +4,34 @@
 
 {% block content %}
 
-    <h3>사건 목록</h3>
-
-    {% for case in data.case_list %}
-        <li><a href="{% url 'cases:case_detail' case.pk %}">{{case.case_num}} / {{case.plaintiff_name}} / {{case.defendant_name}}</a></li>
-    {% endfor %}
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="table-primary">
+            <tr>
+                <th class="text-center">일시</th>
+                <th class="text-center">장소</th>
+                <th class="text-center">사건번호</th>
+                <th class="text-center">사건명</th>
+                <th class="text-center">원고</th>
+                <th class="text-center">피고</th>
+                <th class="text-center">구분</th>
+                <th class="text-center">담당</th>
+                <th class="text-center">메모</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for case in data.case_list %}
+                <tr>
+                    <td class="text-center">{{case.court_datetime}}</td>
+                    <td class="text-center">{{case.court_location}}</td>
+                    <td class="text-center">{{case.case_num}}</td>
+                    <td class="text-center">{{case.case_name}}</td>
+                    <td class="text-center">{{case.plaintiff_name}}</td>
+                    <td class="text-center">{{case.defendant_name}}</td>
+                    <td class="text-center">{{case.casedate_type}}</td>
+                    <td class="text-center">{{case.case_attorney}}</td>
+                    <td class="text-center">{{case.memo}}</td>
+                 </tr>       
+            {% endfor %}                 
+        </tbody>        
 
 {% endblock content %}}

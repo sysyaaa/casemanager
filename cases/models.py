@@ -8,20 +8,20 @@ class Case(core_models.TimeStampedModel):
     """Case Model Definition"""
 
     COURT_LOACTION_CHOICES = [
-        ("seoul", "서울"),
-        ("busan", "부산"),
-        ("daejeon", "대전"),
-        ("daegu", "대구"),
+        ("서울", "서울"),
+        ("부산", "부산"),
+        ("대전", "대전"),
+        ("대구", "대구"),
     ]
 
     CASEDATE_TYPE = [
-        ("arguedate", "변론기일"),
-        ("crim_arguedate", "공판기일"),
-        ("decisiondate", "선고기일"),
-        ("settledate", "조정기일"),
-        ("crim_arguedate", "공판기일"),
-        ("questiondate", "심문기일"),
-        ("etcdate", "기타"),
+        ("변론기일", "변론기일"),
+        ("공판기일", "공판기일"),
+        ("선고기일", "선고기일"),
+        ("조정기일", "조정기일"),
+        ("공판기일", "공판기일"),
+        ("심문기일", "심문기일"),
+        ("기타", "기타"),
     ]
 
     plaintiff_name = models.CharField(max_length=50, verbose_name="원고", blank=True)
