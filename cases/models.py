@@ -40,5 +40,7 @@ class Case(core_models.TimeStampedModel):
     )
     memo = models.TextField(verbose_name="메모", blank=True)
 
+    modify_date = models.DateTimeField(null=True, blank=True)
+
     def __str__(self):
         return f"{self.case_num} / {self. plaintiff_name} - {self.defendant_name}"

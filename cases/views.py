@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from .forms import CaseAddForm
 from .models import Case
 
 
@@ -21,8 +22,23 @@ def all_cases(request):
     context = {"data": data}
     return render(request, "cases/case_list.html", context)
 
+
 def detail(request, pk):
     """사건 내용 출력"""
     case = get_object_or_404(Case, pk=pk)
     context = {"case": case}
     return render(request, "cases/case_detail.html", context)
+
+
+def case_add(request):
+    """사건 추가"""
+
+    if request.method == "POST":
+        form = CaseAddForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("cases:all_cases")
+    else:
+        form = CaseAddForm()
+
+    return render(request, "cases/case_add.html", {"form": form})

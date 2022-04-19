@@ -13,6 +13,17 @@
 <body>
     <header>
         {% include "partial/nav.html" %}
+        {% block addcase_search_bar %}
+            <nav class="navbar me-auto navbar-light bg-light border-bottom" style="background-color: #DCFDFF;">
+            {% if user.is_authenticated %}
+                <a class="btn btn-primary" href="{% url "cases:case_add" %}" role="button"> 사건 추가 </a>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit"> Search </button>
+                </form>
+             {% endif %}
+            </nav>
+        {% endblock addcase_search_bar %}
     </header>
     {% block content %}{% endblock %}
 </body>
