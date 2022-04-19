@@ -1,5 +1,53 @@
 {% extends "base.html" %}
 
-{% block page_title %}사건 추가{% endblock page_title %}
+{% block page_title %}사건 정보{% endblock page_title %}
 
 {% block addcase_search_bar %}{% endblock addcase_search_bar %}
+
+{% block content %}
+
+<table class="table">
+    <thead> 
+        <th style="width:20%">사건 상세정보</th>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row" class="text-center">다음 기일</th>
+            <td class="text-center">{{data.court_datetime}}</td>
+        </tr>  
+        <tr>
+            <th scope="row" class="text-center">장소</th>
+            <td class="text-center">{{data.court_location}}</td>
+        </tr>  
+        <tr>
+            <th scope="row" class="text-center">사건번호</th>
+            <td class="text-center">{{data.case_num}}</td>
+        </tr>  
+        <tr>
+            <th scope="row" class="text-center">사건명</th>
+            <td class="text-center">{{data.case_name}}</td>
+        </tr>  
+        <tr>
+            <th scope="row" class="text-center">원고</th>
+            <td class="text-center">{{data.plaintiff_name}}</td>
+        </tr>  
+        <tr>
+            <th scope="row" class="text-center">피고</th>
+            <td class="text-center">{{data.defendant_name}}</td>
+        </tr>  
+        <tr>
+            <th scope="row" class="text-center">구분</th>
+            <td class="text-center">{{data.casedate_type}}</td>
+        </tr>  
+        <tr>
+            <th scope="row" class="text-center">담당</th>
+            <td class="text-center">{{data.case_attorney}}</td>
+        </tr>  
+        <tr>
+            <th scope="row" class="text-center">메모</th>
+            <td class="text-center" id="case_memo">{{data.memo}}</td>
+        </tr>  
+  </tbody>
+</table>
+
+{% endblock content %}

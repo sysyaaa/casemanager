@@ -23,10 +23,10 @@ def all_cases(request):
     return render(request, "cases/case_list.html", context)
 
 
-def detail(request, pk):
+def case_detail(request, pk):
     """사건 내용 출력"""
-    case = get_object_or_404(Case, pk=pk)
-    context = {"case": case}
+    data = get_object_or_404(Case, pk=pk)
+    context = {"data": data}
     return render(request, "cases/case_detail.html", context)
 
 
