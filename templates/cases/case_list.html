@@ -29,7 +29,9 @@
                     <td class="text-center">{{case.defendant_name}}</td>
                     <td class="text-center">{{case.casedate_type}}</td>
                     <td class="text-center">{{case.case_attorney}}</td>
-                    <td class="text-center"><a href="{% url "cases:case_detail" case.id %}">상세정보 보기</a></td>
+                    <td class="text-center">
+                        <a href="{% url "cases:case_detail" case.id %}">상세정보 보기</a>
+                    </td>
                  </tr>       
             {% endfor %}                 
         </tbody>        

@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+    <script src="{% static 'jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    
+    {% comment %} 자바스크립트 start {% endcomment %}
+    
+    {% block script %}    
+    {% endblock  %}
+
     <title>Casemanager {% block page_title %}{% endblock page_title %}</title>
 </head>
 
@@ -16,10 +25,10 @@
         {% block addcase_search_bar %}
             <nav class="navbar me-auto navbar-light bg-light border-bottom" style="background-color: #DCFDFF;">
             {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url "cases:case_add" %}" role="button"> 사건 추가 </a>
+                <a class="btn btn-primary mx-2" href="{% url "cases:case_add" %}" role="button"> 사건 추가 </a>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit"> Search </button>
+                    <button class="btn btn-outline-dark mx-2" type="submit"> Search </button>
                 </form>
              {% endif %}
             </nav>

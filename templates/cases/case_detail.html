@@ -12,14 +12,6 @@
     </thead>
     <tbody>
         <tr>
-            <th scope="row" class="text-center">다음 기일</th>
-            <td class="text-center">{{data.court_datetime}}</td>
-        </tr>  
-        <tr>
-            <th scope="row" class="text-center">장소</th>
-            <td class="text-center">{{data.court_location}}</td>
-        </tr>  
-        <tr>
             <th scope="row" class="text-center">사건번호</th>
             <td class="text-center">{{data.case_num}}</td>
         </tr>  
@@ -36,6 +28,14 @@
             <td class="text-center">{{data.defendant_name}}</td>
         </tr>  
         <tr>
+            <th scope="row" class="text-center">다음 기일</th>
+            <td class="text-center">{{data.court_datetime}}</td>
+        </tr>  
+        <tr>
+            <th scope="row" class="text-center">장소</th>
+            <td class="text-center">{{data.court_location}}</td>
+        </tr>  
+        <tr>
             <th scope="row" class="text-center">구분</th>
             <td class="text-center">{{data.casedate_type}}</td>
         </tr>  
@@ -47,7 +47,29 @@
             <th scope="row" class="text-center">메모</th>
             <td class="text-center" id="case_memo">{{data.memo}}</td>
         </tr>  
+        <tr>
+            <th scope="row" class="text-center">최근 수정일시</th>
+            <td class="text-center" id="case_modify_info">{{data.modify_date|default_if_none:''}}</td>
+        </tr>  
   </tbody>
 </table>
 
+<div class="mx-3">
+    <a href="{% url "cases:case_modify" data.id %}" class="btn btn-primary">수정하기</a>
+    <a href="#" class="delete btn btn-primary" data-uri="{% url 'cases:case_delete' data.id %}">삭제하기</a>
+</div>
+
 {% endblock content %}
+
+{% block script %}
+
+<script type='text/javascript'>
+$(document).ready(function(){
+    $(".delete").on('click', function(){
+        if(confirm("정말로 삭제하시겠습니까?")){
+            location.href = $(this).data('uri');
+        }
+    });
+});
+</script>
+{% endblock  %}
